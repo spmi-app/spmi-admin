@@ -1,10 +1,10 @@
 export const firebaseConfig = {
-  apiKey: "AIzaSyC1_zdeCzB6ISOB7t7efPbK_SOXn-vVMz4",
-  authDomain: "react-admin-firebase-client.firebaseapp.com",
-  databaseURL: "https://spmi-admin.firebaseio.com",
-  projectId: "spmi-admin",
-  storageBucket: "gs://spmi-admin.appspot.com/",
-  messagingSenderId: "627393424606"
+  apiKey: "AIzaSyCpaRisvrZrtyjQmQXdHj5hsRugDeYytUo",
+  authDomain: "spmi-app.herokuapp.com",
+  databaseURL: "https://spmi-app.firebaseio.com",
+  projectId: "SPMI",
+  storageBucket: "gs://spmi-app.appspot.com/",
+  messagingSenderId: "588702134968"
 };
 
 export const trackedResources = [
