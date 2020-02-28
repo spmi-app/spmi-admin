@@ -8,7 +8,8 @@ export const firebaseConfig = {
 };
 
 export const trackedResources = [
-  { name: "contents", isPublic: true, uploadFields: ["logo", "pdf"] }
+  { name: "contents", isPublic: true, uploadFields: ["logo", "pdf"] },
+  { name: "tags", isPublic: true }
 ];
 
 export const authConfig = {

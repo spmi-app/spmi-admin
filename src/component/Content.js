@@ -11,8 +11,11 @@ import {
   ImageInput,
   ImageField,
   FileField,
-  FileInput
+  FileInput,
+  ReferenceArrayInput,
+  SelectArrayInput
 } from "react-admin";
+import uuidv1 from "uuid/v1";
 
 export const ContentList = props => (
   <List title="All Content" {...props}>
@@ -25,21 +28,28 @@ export const ContentList = props => (
   </List>
 );
 
-export const ContentCreate = props => (
-  <Create {...props}>
-    <SimpleForm>
-      <TextInput source="id" />
-      <TextInput source="title" />
-      <TextInput source="description" />
-      <ImageInput source="logo" label="Logo" accept="image/*">
-        <ImageField source="src" title="title" />
-      </ImageInput>
-      <FileInput source="pdf" label="Related files" accept="application/pdf">
-        <FileField source="src" title="title" />
-      </FileInput>
-    </SimpleForm>
-  </Create>
-);
+export const ContentCreate = props => {
+  const uuid = uuidv1();
+
+  return (
+    <Create {...props}>
+      <SimpleForm>
+        <TextInput disabled initialValue={uuid} source="id" />
+        <TextInput source="title" />
+        <TextInput source="description" />
+        <ReferenceArrayInput source="tags" label="Tags" reference="tags">
+          <SelectArrayInput optionText="label" />
+        </ReferenceArrayInput>
+        <ImageInput source="logo" label="Logo" accept="image/*">
+          <ImageField source="src" title="title" />
+        </ImageInput>
+        <FileInput source="pdf" label="Related files" accept="application/pdf">
+          <FileField source="src" title="title" />
+        </FileInput>
+      </SimpleForm>
+    </Create>
+  );
+};
 
 export const ContentEdit = props => (
   <Edit {...props}>
@@ -47,6 +57,9 @@ export const ContentEdit = props => (
       <TextField disabled source="id" />
       <TextInput source="title" />
       <TextInput source="description" />
+      <ReferenceArrayInput source="tags" label="Tags" reference="tags">
+        <SelectArrayInput optionText="label" />
+      </ReferenceArrayInput>
       <ImageInput source="logo" label="Logo" accept="image/*">
         <ImageField source="src" title="title" />
       </ImageInput>
