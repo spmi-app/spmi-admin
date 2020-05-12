@@ -12,6 +12,7 @@ import {
   ImageField,
   FileField,
   FileInput,
+  NumberInput,
   ReferenceArrayInput,
   SelectArrayInput
 } from "react-admin";
@@ -21,6 +22,7 @@ export const ContentList = props => (
   <List title="All Content" {...props}>
     <Datagrid>
       <TextField source="id" />
+      <TextField source="order" />
       <TextField source="title" />
       <TextField source="description" />
       <EditButton />
@@ -37,6 +39,7 @@ export const ContentCreate = props => {
         <TextInput disabled initialValue={uuid} source="id" />
         <TextInput source="title" />
         <TextInput source="description" />
+        <NumberInput source="order" label="Sort Order" />
         <ReferenceArrayInput source="tags" label="Tags" reference="tags">
           <SelectArrayInput optionText="label" />
         </ReferenceArrayInput>
@@ -57,6 +60,7 @@ export const ContentEdit = props => (
       <TextField disabled source="id" />
       <TextInput source="title" />
       <TextInput source="description" />
+      <NumberInput source="order" label="Sort Order" />
       <ReferenceArrayInput source="tags" label="Tags" reference="tags">
         <SelectArrayInput optionText="label" />
       </ReferenceArrayInput>

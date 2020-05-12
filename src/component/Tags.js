@@ -5,6 +5,7 @@ import {
   Create,
   Datagrid,
   TextField,
+  NumberInput,
   DisabledInput,
   EditButton,
   SimpleForm,
@@ -16,6 +17,7 @@ export const TagsList = props => (
   <List title="All Categories" {...props}>
     <Datagrid>
       <TextField source="id" />
+      <TextField source="order" />
       <TextField source="label" />
       <EditButton />
     </Datagrid>
@@ -28,6 +30,7 @@ export const TagCreate = props => {
     <Create {...props}>
       <SimpleForm>
         <TextInput disabled initialValue={uuid} source="id" />
+        <NumberInput source="order" label="Sort Order" />
         <TextInput source="label" />
       </SimpleForm>
     </Create>
@@ -38,6 +41,7 @@ export const TagEdit = props => (
   <Edit {...props}>
     <SimpleForm>
       <TextField disabled source="id" />
+      <NumberInput source="order" label="Sort Order" />
       <TextInput source="label" />
     </SimpleForm>
   </Edit>
